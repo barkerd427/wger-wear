@@ -17,6 +17,7 @@ health-services = { module = "androidx.health:health-services-client", version =
 wear-phone-interactions = { module = "androidx.wear:wear-phone-interactions", version = "1.1.1" }
 health-connect = { module = "androidx.health.connect:connect-client", version = "1.1.0" }
 junit = { module = "junit:junit", version = "4.13.2" }
+coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "coroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
