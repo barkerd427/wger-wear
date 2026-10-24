@@ -65,3 +65,15 @@ is a one-way flattened snapshot, auth is a baked-in token, HR is not via Health 
 no read path from the server. Recommendation: start a fresh project, port the Room/test/service
 patterns and the Data Layer lessons (AGENTS.md "rules that can't be broken" are all valid), and keep
 this repo as a reference. The licence (Apache-2.0) allows copying into an AGPL-3.0 wger codebase.
+
+## Build check (cloud VM, no device)
+
+- Toolchain: JDK 21 (JDK 17 is **not** actually installed in this image despite the brief), Gradle 8.10.2 wrapper,
+  AGP 8.7.2, SDK `platforms;android-35` + `build-tools;34.0.0` + `platform-tools`.
+- Maven Central (`repo.maven.apache.org`) answered **HTTP 429** from the cloud egress IP. Workaround, outside the repo:
+  `~/.gradle/init.d/mirror.gradle` puts `https://maven-central.storage-download.googleapis.com/maven2/` first.
+- `./gradlew -q assembleDebug :wear:testDebugUnitTest :mobile:testDebugUnitTest` → **BUILD OK** in ~2.5 min warm-ish.
+  `wear-debug.apk` 32.4 MB, `mobile-debug.apk` 11.2 MB (debug, unminified).
+- Tests: 18/18 pass — mobile `SessionUploaderTest` 5, `WgerApiClientTest` 3; wear `WorkoutRepositoryTest` 7,
+  `AppDatabaseSchemaChangeTest` 1, `MigrationTest` 1, `RoutineDaoTest` 1.
+- Not done: lint, instrumented tests, anything on a device (no emulator/KVM).
