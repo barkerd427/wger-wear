@@ -49,3 +49,6 @@ Thumbs.db
 
 # Claude Code (configuración personal)
 .claude/
+spike/.gradle/
+spike/**/build/
+spike/.kotlin/

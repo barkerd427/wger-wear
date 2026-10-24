@@ -1,0 +1,23 @@
+[versions]
+agp = "9.2.1"          # same as wger-project/flutter android/
+kotlin = "2.3.20"      # same as wger-project/flutter android/
+powersync = "1.15.2"
+ktor = "3.5.2"         # what powersync 1.15.2 pulls in
+coroutines = "1.11.0"
+
+[libraries]
+powersync-core = { module = "com.powersync:core", version.ref = "powersync" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
+health-services = { module = "androidx.health:health-services-client", version = "1.1.0" }
+wear-phone-interactions = { module = "androidx.wear:wear-phone-interactions", version = "1.1.1" }
+health-connect = { module = "androidx.health.connect:connect-client", version = "1.1.0" }
+junit = { module = "junit:junit", version = "4.13.2" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
