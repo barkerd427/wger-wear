@@ -15,6 +15,9 @@ android {
         versionName = "0.0-spike"
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
     }
+    buildTypes {
+        release { isMinifyEnabled = true } // size measurement only; unsigned
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
